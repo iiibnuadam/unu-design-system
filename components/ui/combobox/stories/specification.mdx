@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { Combobox } from '@/components/ui/combobox'
+
+<Meta title="Components/Combobox" component={Combobox} />
+
+## Specification
+
+The `Combobox` component is used for selecting an item from a list of options, with the ability to filter the list by typing.
+
+### Anatomy
+
+The `Combobox` component consists of an input field for typing and a dropdown list of selectable items.
+
+## Component Props
+
+<table
+  border="1"
+  style={{
+    borderCollapse: 'collapse',
+    border: '1px solid gray',
+    width: '100%',
+    padding: '8px',
+  }}
+  >
+  <thead>
+    <tr>
+      <th style={{ padding: '8px' }}>Name</th>
+      <th style={{ padding: '8px' }}>Type</th>
+      <th style={{ padding: '8px' }}>Default</th>
+      <th style={{ padding: '8px' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ padding: '8px' }}>modelValue</td>
+      <td style={{ padding: '8px' }}>`string`</td>
+      <td style={{ padding: '8px' }}>`''`</td>
+      <td style={{ padding: '8px' }}>The selected value. Can be bound using `v-model`.</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>items</td>
+      <td style={{ padding: '8px' }}>`{ value: string; label: string }[]`</td>
+      <td style={{ padding: '8px' }}></td>
+      <td style={{ padding: '8px' }}>An array of selectable items.</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>placeholder</td>
+      <td style={{ padding: '8px' }}>`string`</td>
+      <td style={{ padding: '8px' }}>`'Select an option'`</td>
+      <td style={{ padding: '8px' }}>The placeholder text when no option is selected.</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>disabled</td>
+      <td style={{ padding: '8px' }}>`boolean`</td>
+      <td style={{ padding: '8px' }}>`false`</td>
+      <td style={{ padding: '8px' }}>Whether the combobox is disabled.</td>
+    </tr>
+    </tbody>
+</table>

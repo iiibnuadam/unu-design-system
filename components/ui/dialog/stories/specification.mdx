@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { Dialog } from '@/components/ui/dialog'
+
+<Meta title="Components/Dialog" component={Dialog} />
+
+## Specification
+
+The `Dialog` component is used for displaying modal dialogs, providing a way to present important information or capture user input.
+
+### Anatomy
+
+The `Dialog` component consists of:
+
+- A title section
+- An optional subtitle
+- A content area for displaying custom information
+- An optional footer
+- A close button (optional)
+
+## Component Props
+
+<table
+  border="1"
+  style={{
+    borderCollapse: 'collapse',
+    border: '1px solid gray',
+    width: '100%',
+    padding: '8px',
+  }}
+>
+  <thead>
+    <tr>
+      <th style={{ padding: '8px' }}>Name</th>
+      <th style={{ padding: '8px' }}>Type</th>
+      <th style={{ padding: '8px' }}>Default</th>
+      <th style={{ padding: '8px' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ padding: '8px' }}>modelValue</td>
+      <td style={{ padding: '8px' }}>`boolean`</td>
+      <td style={{ padding: '8px' }}>`false`</td>
+      <td style={{ padding: '8px' }}>Controls the visibility of the dialog.</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>title</td>
+      <td style={{ padding: '8px' }}>`string`</td>
+      <td style={{ padding: '8px' }}>`''`</td>
+      <td style={{ padding: '8px' }}>The title of the dialog.</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>subtitle</td>
+      <td style={{ padding: '8px' }}>`string`</td>
+      <td style={{ padding: '8px' }}>`''`</td>
+      <td style={{ padding: '8px' }}>An optional subtitle for the dialog.</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>hideFooter</td>
+      <td style={{ padding: '8px' }}>`boolean`</td>
+      <td style={{ padding: '8px' }}>`false`</td>
+      <td style={{ padding: '8px' }}>Whether to hide the footer section.</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>hideClose</td>
+      <td style={{ padding: '8px' }}>`boolean`</td>
+      <td style={{ padding: '8px' }}>`false`</td>
+      <td style={{ padding: '8px' }}>Whether to hide the close button.</td>
+    </tr>
+  </tbody>
+</table>

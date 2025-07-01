@@ -1,0 +1,96 @@
+import { Meta, Story } from '@storybook/addon-docs'
+
+import { Switch } from '..'
+import * as SwitchStories from './Switch.stories'
+
+<Meta title="Components/Switch/Specification" />
+
+# Specification
+
+A control that allows the user to toggle between checked and not checked.
+
+## Anatomy
+
+The Switch component contain root only
+
+```
+<Switch />
+```
+
+## Component Props
+
+### Switch Props
+
+<table
+  border="1"
+  style={{
+    borderCollapse: 'collapse',
+    border: '1px solid gray',
+    width: '100%',
+    padding: '8px',
+  }}
+>
+  <thead>
+    <tr>
+      <th style={{ padding: '8px' }}>Prop</th>
+      <th style={{ padding: '8px' }}>Description</th>
+      <th style={{ padding: '8px' }}>Type</th>
+      <th style={{ padding: '8px' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ padding: '8px' }}>switch-size</td>
+      <td style={{ padding: '8px' }}>Set size of switch button.</td>
+      <td style={{ padding: '8px' }}>```'default' | 'sm' | 'lg'```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>switch-thumb-size</td>
+      <td style={{ padding: '8px' }}>Set size of switch thumb button.</td>
+      <td style={{ padding: '8px' }}>```'default' | 'sm' | 'lg'```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>right-label</td>
+      <td style={{ padding: '8px' }}>
+        Sets label on the right of the switch button.
+      </td>
+      <td style={{ padding: '8px' }}>```string```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>left-label</td>
+      <td style={{ padding: '8px' }}>
+        Sets label on the left of the switch button.
+      </td>
+      <td style={{ padding: '8px' }}>```string```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>disabled</td>
+      <td style={{ padding: '8px' }}>
+        When true, prevents the user from interacting with switch button.
+      </td>
+      <td style={{ padding: '8px' }}>```boolean```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>required</td>
+      <td style={{ padding: '8px' }}>
+        When true, indicates that the user must set the value before the owning
+        form can be submitted.
+      </td>
+      <td style={{ padding: '8px' }}>```boolean```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>with-icon</td>
+      <td style={{ padding: '8px' }}>
+        Providing the additional elements such as icons.
+      </td>
+      <td style={{ padding: '8px' }}>```boolean```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+  </tbody>
+</table>

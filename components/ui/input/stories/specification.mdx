@@ -1,0 +1,64 @@
+import { Meta, Story } from '@storybook/addon-docs'
+
+import { Input } from '..';
+import * as InputStories from './Input.stories'
+
+<Meta title="Components/Input/Specification" />
+
+# Specification
+
+Displays a form input field or a component that looks like an input field.
+
+## Anatomy
+The Input bar only contain root component `<Input />` 
+
+## Component Props
+
+### Progress Props
+
+<table border="1" style={{ borderCollapse: 'collapse', border: '1px solid gray', width: '100%', padding: '8px' }}>
+  <thead>
+    <tr>
+      <th style={{ padding: '8px' }}>Prop</th>
+      <th style={{ padding: '8px' }}>Description</th>
+      <th style={{ padding: '8px' }}>Type</th>
+      <th style={{ padding: '8px' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ padding: '8px' }}>label</td>
+      <td style={{ padding: '8px' }}>
+         Sets input label.
+      </td>
+      <td style={{ padding: '8px' }}>```string```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>size</td>
+      <td style={{ padding: '8px' }}>Inputs stacked small to large sizes.</td>
+      <td style={{ padding: '8px' }}>```'sm' | 'lg'```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>variant</td>
+      <td style={{ padding: '8px' }}>Applies variant input style.</td>
+      <td style={{ padding: '8px' }}>```'bordered' | 'underline' | 'light'```</td>
+      <td style={{ padding: '8px' }}>`'bordered'`</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>error</td>
+      <td style={{ padding: '8px' }}>Puts the input in a manual error state.</td>
+      <td style={{ padding: '8px' }}>```boolean```</td>
+      <td style={{ padding: '8px' }}>`false`</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>error-messages</td>
+      <td style={{ padding: '8px' }}>Puts the input in an error state and passes through custom error messages.</td>
+      <td style={{ padding: '8px' }}>```string```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+  </tbody>
+</table>
+
+

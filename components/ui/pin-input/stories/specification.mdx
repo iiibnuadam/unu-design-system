@@ -1,0 +1,67 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { PinInput } from '@/components/ui/pin-input'
+
+<Meta title="Components/PinInput" component={PinInput} />
+
+## Specification
+
+The `PinInput` component is used for entering PIN codes, typically numeric, with configurable options such as masking, length, and disabled state.
+
+### Anatomy
+
+The `PinInput` component consists of a text input field for entering the PIN code.
+
+## Component Props
+
+<table
+  border="1"
+  style={{
+    borderCollapse: 'collapse',
+    border: '1px solid gray',
+    width: '100%',
+    padding: '8px',
+  }}
+>
+  <thead>
+    <tr>
+      <th style={{ padding: '8px' }}>Name</th>
+      <th style={{ padding: '8px' }}>Type</th>
+      <th style={{ padding: '8px' }}>Default</th>
+      <th style={{ padding: '8px' }}>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ padding: '8px' }}>modelValue</td>
+      <td style={{ padding: '8px' }}>`string`</td>
+      <td style={{ padding: '8px' }}>`''`</td>
+      <td style={{ padding: '8px' }}>The current value of the PIN input.</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>id</td>
+      <td style={{ padding: '8px' }}>`string`</td>
+      <td style={{ padding: '8px' }}>`'pin-input'`</td>
+      <td style={{ padding: '8px' }}>The unique identifier for the input.</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>name</td>
+      <td style={{ padding: '8px' }}>`string`</td>
+      <td style={{ padding: '8px' }}>`''`</td>
+      <td style={{ padding: '8px' }}>The name attribute for the input.</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>mask</td>
+      <td style={{ padding: '8px' }}>`boolean`</td>
+      <td style={{ padding: '8px' }}>`false`</td>
+      <td style={{ padding: '8px' }}>
+        Whether to mask the input (e.g., for passwords).
+      </td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>label</td>
+      <td style={{ padding: '8px' }}>`string`</td>
+      <td style={{ padding: '8px' }}>`'Enter PIN'`</td>
+      <td style={{ padding: '8px' }}>The label for the input field.</td>
+    </tr>
+  </tbody>
+</table>

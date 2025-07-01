@@ -1,0 +1,40 @@
+import { Meta, Story } from '@storybook/addon-docs'
+
+import { Skeleton } from '..';
+import * as SkeletonStories from './Skeleton.stories'
+
+<Meta title="Components/Skeleton/Specification" />
+
+# Specification
+
+Use to show a placeholder while content is loading.
+
+## Anatomy
+The Skeleton only contain root component `<Skeleton />` 
+
+## Component Props
+
+### Progress Props
+
+<table border="1" style={{ borderCollapse: 'collapse', border: '1px solid gray', width: '100%', padding: '8px' }}>
+  <thead>
+    <tr>
+      <th style={{ padding: '8px' }}>Prop</th>
+      <th style={{ padding: '8px' }}>Description</th>
+      <th style={{ padding: '8px' }}>Type</th>
+      <th style={{ padding: '8px' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ padding: '8px' }}>type</td>
+      <td style={{ padding: '8px' }}>
+         A string delimited list of skeleton components to create such as type="text" or type="card"
+      </td>
+      <td style={{ padding: '8px' }}>```'avatar' | 'button' | 'card' | 'text''```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+  </tbody>
+</table>
+
+

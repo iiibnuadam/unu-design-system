@@ -1,0 +1,70 @@
+import { Meta, Story } from '@storybook/addon-docs'
+
+import { Checkbox } from '..';
+import * as CheckboxStories from './Checkbox.stories'
+
+<Meta title="Components/Checkbox/Specification" />
+
+# Specification
+
+A control that allows the user to toggle between checked and not checked.
+
+## Anatomy
+The Checkbox bar only contain root component `<Checkbox />` 
+
+## Component Props
+
+### Progress Props
+
+<table border="1" style={{ borderCollapse: 'collapse', border: '1px solid gray', width: '100%', padding: '8px' }}>
+  <thead>
+    <tr>
+      <th style={{ padding: '8px' }}>Prop</th>
+      <th style={{ padding: '8px' }}>Description</th>
+      <th style={{ padding: '8px' }}>Type</th>
+      <th style={{ padding: '8px' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ padding: '8px' }}>label</td>
+      <td style={{ padding: '8px' }}>
+         Sets checkbox label.
+      </td>
+      <td style={{ padding: '8px' }}>```string```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>default-value</td>
+      <td style={{ padding: '8px' }}>The value of the checkbox when it is initially rendered. Use when you do not need to control its value.</td>
+      <td style={{ padding: '8px' }}>```boolean' | 'intermediate'```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>disabled</td>
+      <td style={{ padding: '8px' }}>When true, prevents the user from interacting with the checkbox.</td>
+      <td style={{ padding: '8px' }}>```boolean```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>required</td>
+      <td style={{ padding: '8px' }}>When true, indicates that the user must set the value before the owning form can be submitted.</td>
+      <td style={{ padding: '8px' }}>```boolean```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>checked</td>
+      <td style={{ padding: '8px' }}>The uncontrolled value of the checkbox.</td>
+      <td style={{ padding: '8px' }}>```boolean | 'intermediate'```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>description</td>
+      <td style={{ padding: '8px' }}>Set text under label.</td>
+      <td style={{ padding: '8px' }}>```string```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+  </tbody>
+</table>
+
+

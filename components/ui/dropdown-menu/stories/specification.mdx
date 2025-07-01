@@ -1,0 +1,69 @@
+import { Meta, Story } from '@storybook/addon-docs'
+
+import { DropdownMenu } from '..'
+import * as DropdownStories from './DropdownMenu.stories'
+
+<Meta title="Components/DropdownMenu/Specification" />
+
+# Specification
+
+Displays a dropdown menu with configurable options.
+
+## Anatomy
+
+The Dropdown component consists of a root component `<Dropdown />` that contains trigger and menu items.
+
+## Component Props
+
+### Dropdown Props
+
+<table
+  border="1"
+  style={{
+    borderCollapse: 'collapse',
+    border: '1px solid gray',
+    width: '100%',
+    padding: '8px',
+  }}
+>
+  <thead>
+    <tr>
+      <th style={{ padding: '8px' }}>Prop</th>
+      <th style={{ padding: '8px' }}>Description</th>
+      <th style={{ padding: '8px' }}>Type</th>
+      <th style={{ padding: '8px' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ padding: '8px' }}>items</td>
+      <td style={{ padding: '8px' }}>Array of menu items to be displayed.</td>
+      <td style={{ padding: '8px' }}>```ItemsDropdown[]```</td>
+      <td style={{ padding: '8px' }}>`[]`</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>side</td>
+      <td style={{ padding: '8px' }}>
+        Positioning of the dropdown relative to the trigger.
+      </td>
+      <td style={{ padding: '8px' }}>
+        ```'top' | 'bottom' | 'left' | 'right'```
+      </td>
+      <td style={{ padding: '8px' }}>`'bottom'`</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>align</td>
+      <td style={{ padding: '8px' }}>Alignment of the dropdown content.</td>
+      <td style={{ padding: '8px' }}>```'start' | 'center' | 'end'```</td>
+      <td style={{ padding: '8px' }}>`'start'`</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>v-model:open</td>
+      <td style={{ padding: '8px' }}>
+        Controls the visibility of the dropdown.
+      </td>
+      <td style={{ padding: '8px' }}>```boolean```</td>
+      <td style={{ padding: '8px' }}>`false`</td>
+    </tr>
+  </tbody>
+</table>

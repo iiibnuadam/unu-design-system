@@ -1,0 +1,76 @@
+import { Meta, Story } from '@storybook/addon-docs'
+
+import { Progress } from '..';
+import * as ProgressStories from './Progress.stories'
+
+<Meta title="Components/Progress/Specification" />
+
+# Specification
+
+Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+
+## Anatomy
+The Progress bar only contain root component `<Progress />` 
+
+## Component Props
+
+### Progress Props
+
+<table border="1" style={{ borderCollapse: 'collapse', border: '1px solid gray', width: '100%', padding: '8px' }}>
+  <thead>
+    <tr>
+      <th style={{ padding: '8px' }}>Prop</th>
+      <th style={{ padding: '8px' }}>Description</th>
+      <th style={{ padding: '8px' }}>Type</th>
+      <th style={{ padding: '8px' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ padding: '8px' }}>model-value</td>
+      <td style={{ padding: '8px' }}>
+         The progress value. Can be bind as v-model.
+      </td>
+      <td style={{ padding: '8px' }}>```number | null```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>max</td>
+      <td style={{ padding: '8px' }}>The maximum progress value.</td>
+      <td style={{ padding: '8px' }}>```number```</td>
+      <td style={{ padding: '8px' }}>```DEFAULT_MAX```</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>get-value-label</td>
+      <td style={{ padding: '8px' }}>A function to get the accessible label text representing the current value in a human-readable format. If not provided, the value label will be read as the numeric value as a percentage of the max value.</td>
+      <td style={{ padding: '8px' }}>```((value: number, max: number) => string)```</td>
+      <td style={{ padding: '8px' }}>`${Math.round((value / max) * DEFAULT_MAX)}%`</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>labeled</td>
+      <td style={{ padding: '8px' }}>Place label of a progress.</td>
+      <td style={{ padding: '8px' }}>```boolean```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>title</td>
+      <td style={{ padding: '8px' }}>Place title of a progress.</td>
+      <td style={{ padding: '8px' }}>```string```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>floatingLabel</td>
+      <td style={{ padding: '8px' }}>Label floating with the number on top or bottom of the progress bar. Only show when `labeled` is active and `title` is empty.</td>
+      <td style={{ padding: '8px' }}>```'top' | 'bottom'```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>type</td>
+      <td style={{ padding: '8px' }}>Showing progress bar with different style.</td>
+      <td style={{ padding: '8px' }}>```'default' | 'step'```</td>
+      <td style={{ padding: '8px' }}>```'default'```</td>
+    </tr>
+  </tbody>
+</table>
+
+

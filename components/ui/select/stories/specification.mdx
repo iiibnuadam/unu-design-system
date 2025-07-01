@@ -1,0 +1,54 @@
+import { Meta, Story } from '@storybook/addon-docs'
+
+import { Select } from '..';
+import * as SelectStories from './Select.stories';
+
+<Meta title="Components/Select/Specification" />
+
+# Specification
+
+The Select component allows users to choose from a predefined list of options.
+
+## Anatomy
+The Select component consists of a dropdown trigger and a list of selectable items.
+
+## Component Props
+
+### Select Props
+
+<table border="1" style={{ borderCollapse: 'collapse', border: '1px solid gray', width: '100%', padding: '8px' }}>
+  <thead>
+    <tr>
+      <th style={{ padding: '8px' }}>Prop</th>
+      <th style={{ padding: '8px' }}>Description</th>
+      <th style={{ padding: '8px' }}>Type</th>
+      <th style={{ padding: '8px' }}>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style={{ padding: '8px' }}>modelValue</td>
+      <td style={{ padding: '8px' }}>The selected value. Can be bound using v-model.</td>
+      <td style={{ padding: '8px' }}>```string```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>items</td>
+      <td style={{ padding: '8px' }}>An array of selectable items.</td>
+      <td style={{ padding: '8px' }}>```{ value: string; label: string }[]```</td>
+      <td style={{ padding: '8px' }}></td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>placeholder</td>
+      <td style={{ padding: '8px' }}>The placeholder text when no option is selected.</td>
+      <td style={{ padding: '8px' }}>```string```</td>
+      <td style={{ padding: '8px' }}>"Select an option"</td>
+    </tr>
+    <tr>
+      <td style={{ padding: '8px' }}>hideBorderLeft</td>
+      <td style={{ padding: '8px' }}>Whether to hide the left border.</td>
+      <td style={{ padding: '8px' }}>```boolean```</td>
+      <td style={{ padding: '8px' }}>false</td>
+    </tr>
+  </tbody>
+</table>
