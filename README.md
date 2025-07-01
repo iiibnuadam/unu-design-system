@@ -1,237 +1,242 @@
-# Dokumentasi UNU Design System
+# UNU Design System
 
-## Intro
+A comprehensive Vue.js component library built with TypeScript, Tailwind CSS, and modern best practices.
 
-Unu Design System ini dibangun dari [Preline UI Design Sytem Figma](https://www.figma.com/community/file/1179068859697769656) yang telah disesuaikan.
+## 🚀 Features
 
-Preline UI juga memiliki [UI component library](https://preline.co/) untuk Front End. Tailwind CSS juga digunakan untuk membangun component library ini. Tetapi, paradigma yang digunakan berbeda dengan yang biasa digunakan di Tim Transformasi Digital UNU. Kalau di Preline UI componen library FE untuk membuat component interaktif dengan inline attribute saja dan menambahkan script javascript Preline UI. Misal:
+- **281+ Components**: Complete set of UI components for modern web applications
+- **TypeScript**: Full TypeScript support with detailed type definitions
+- **Vue 3**: Built for Vue 3 with Composition API
+- **Tailwind CSS**: Styled with Tailwind CSS for easy customization
+- **Tree Shakeable**: Import only what you need
+- **SSR Ready**: Works with Nuxt.js and other Vue frameworks
+- **Accessible**: Built with accessibility in mind
+- **Modern**: Uses latest Vue ecosystem libraries
 
-```html
-<!--data-hs-accordion-always-open attribut ini digunakan untuk tetap membuka accordion item setelah diklik-->
-<div class="hs-accordion-group" data-hs-accordion-always-open=""></div>
-```
-
-Jadi semacam kita tidak memiliki kontrol akan code javascript pada component accordion tersebut. Ditambah lagi stack yang digunakan oleh TIM FE Transformasi Digital UNU ini berupa Nuxt.js 2 (sekarang akan menggunakan Nuxt.js 3). Sehingga akan kurang maksimal jika menggunakan component library bawaan Preline UI.
-
-Oleh karena itu UI component library yang digunakan adalah **shadcn/vue**. Merupakan component library yang terinspirasi dari library **shadcn** (yang berbasis tailwind css, react.js, dan radix ui). **shadcn/vue** berbasis tailwind css, Vue.js dan Reka UI .js. Library ini digunakan sebagai basis pengembangan UNU Design System karena kemudahan dalam kustomisasi dan komponen yang ready to use yang cukup lengkap
-
-Jadi idenya dari basis komponen **shadcn/vue** ini akan dikustomisasi seperti Figma design system UNU.
-
-### Reference
-
-- [figma UNU Design System](https://www.figma.com/design/ux4CTnxNTYgUpHLr0W99qL/OBA---Akademik--Design-2024----UNU?t=fVyh8CtDnaLe0ODT-0): Design System UNU
-- [Nuxt.js 3](https://nuxt.com/): stack utama yang digunakan untuk pengembangan project FE (Vue.js 3 dengan Composition API dan Typescript)
-  - [Layer](https://nuxt.com/docs/getting-started/layers): ini digunakan untuk mengatur project structure folder di Nuxt agar lebih tertata kembali (misal: struktur folder mengikuti menggunakan DDD Domain Driven Design). Selain itu digunakan untuk mengekstens UNU Design System ke project baru
-- [Tailwind css](https://tailwindcss.com/): untuk styling
-- [Preline UI](https://preline.co/): base UI yang digunakan untuk membuat styling pada component
-- [shadcn vue](https://www.shadcn-vue.com/): Pre-built component
-- [storybook](https://storybook.js.org/): Untuk pendokumentasian component yang telah dibuat
-- [pnpm](https://pnpm.io/): Package manager yang digunakan
-
-## Cara Menggunakan di Project Baru
-
-1. [Install nuxt 3 + tailwind + shadcn vue](https://www.shadcn-vue.com/docs/installation/nuxt.html)
-2. Mendapatkan [Gitlab Personal Access Token](https://docs.gitlab.com/user/profile/personal_access_tokens)
-3. Setup di project nuxt 3 baru
-
-   - environment variables (.env)
-
-     buat gitlab personal access token, kemudian masukkan ke environment variable ini
-
-     ```
-       GITLAB_PERSONAL_ACCESS_TOKEN=glpat-secret_secret
-     ```
-
-   - Extend UNU Design System
-
-     - Extend project unu design system menggunakan config extends seperti code berikut pada `nuxt.config.ts` bagian `extends`
-
-       ```ts
-       // nuxt.config.ts
-       ...
-       export default defineNuxtConfig({
-           compatibilityDate: "2024-11-01",
-           // untuk mengekstens repo unu design system ke project
-           extends: [
-               [
-                   "gitlab:transformasidigitalunuy/unu-design-system",
-                   {
-                       install: true,
-                       auth: process.env.GITLAB_PERSONAL_ACCESS_TOKEN,
-                   },
-               ],
-           ],
-           ...
-       ```
-
-     - Jalankan terlebih dahulu `pnpm install` maka nuxt akan mengekstens UNU Design System repo ke project baru kita
-       ```bash
-       > nuxt-app@ postinstall /Users/abdulbasithb/project/unu/oba-fe/node_modules/.c12/gitlab_transformasidigitalunuy_unu_Mfc6pklfVM
-       ```
-     - Lalu tambahkan pengaturan ini di `nuxt.config.ts` bagian `components`
-       ```ts
-         // nuxt.config.ts
-         ...
-         // Set Prefix Unu Design System
-         components: [
-             {
-                 path: "~/components",
-                 pathPrefix: false,
-             },
-             {
-                 // sesuaikan dengan yang didapat saat pnpm install tadi
-                 path: "node_modules/.c12/gitlab_transformasidigitalunuy_unu_Mfc6pklfVM/components/ui",
-                 extensions: [".vue"],
-                 prefix: "Ui",
-                 pathPrefix: false,
-             },
-         ],
-         ...
-       ```
-       Prefix ini nantinya digunakan seperti berikut ini `<UiButton variant="unu">Ini Button</UiButton>` agar tidak terjadi bentrok antara component pada project terbaru saat ini dengan extended component dari UNU Design System serta untuk memudahkan component mana yang berasal dari UNU Design System
-     - tailwind.css
-
-       tailwind yang digunakan merupakan tailwind 4. sehingga tidak menggunakan tailwind.config.ts. Agar extended component UNU Design System dapat teraplikasi stylingnya maka diperlukan code seperti ini di tailwind.css. Kode ini berfungsi untuk menginstruksikan tailwind agar mengaplikasikan juga styling saat dev server jalan di file extended UNU Design System.
-
-       ```css
-       @source "../../node_modules/.c12/gitlab_transformasidigitalunuy_unu_Mfc6pklfVM/components";
-       @import '../../node_modules/.c12/gitlab_transformasidigitalunuy_unu_Mfc6pklfVM/assets/css/tailwind.css';
-       /*Sesuaikan dengan posisi path UNU Design System saat pnpm install tadi*/
-       ```
-
-     - Memulai menggunakan component
-
-       ```vue
-       <UiButton variant="unu">Ini Button</UiButton>
-       ```
-
-## Cara Berkontribusi
-
-- task distribution https://docs.google.com/spreadsheets/d/1V4-pbFNpwN3kZE40_mLME1J0DBvu_Tb9gStJHPQZEss/edit?gid=0#gid=0
-- git flow
-  - buat branch feat/nama-branch atau fix/nama-branch
-  - buat MR ke master
-
-# Nuxt Minimal Starter
-
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install dependencies:
+## 📦 Installation
 
 ```bash
-
-# npm
-
-npm  install
-
-
-
-# pnpm
-
-pnpm  install
-
-
-
-# yarn
-
-yarn  install
-
-
-
-# bun
-
-bun  install
-
+npm install unu-design-system
+# or
+yarn add unu-design-system
+# or
+pnpm add unu-design-system
 ```
 
-## Development Server
+## 🛠️ Usage
 
-Start the development server on `http://localhost:3000`:
+### Basic Import
+
+```vue
+<template>
+  <div>
+    <Button variant="primary">Click me</Button>
+    <Alert>
+      <AlertTitle>Success!</AlertTitle>
+      <AlertDescription>Your operation was successful.</AlertDescription>
+    </Alert>
+  </div>
+</template>
+
+<script setup>
+import { Button, Alert, AlertTitle, AlertDescription } from 'unu-design-system'
+</script>
+```
+
+### With Auto-Import (Nuxt.js)
+
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  modules: ['@nuxt/auto-imports'],
+  autoImports: {
+    imports: [
+      {
+        from: 'unu-design-system',
+        names: ['Button', 'Alert', 'Card', /* ... other components */]
+      }
+    ]
+  }
+})
+```
+
+## 📚 Available Components
+
+### Form Components
+- `Button` - Customizable buttons with multiple variants
+- `Input` - Text input with validation support
+- `Textarea` - Multi-line text input
+- `Select` - Dropdown select with search
+- `Checkbox` - Checkbox input component
+- `RadioGroup` - Radio button groups
+- `Switch` - Toggle switch component
+- `Form` - Form wrapper with validation
+- `FormField` - Individual form field wrapper
+- `Label` - Form labels
+- `NumberField` - Numeric input field
+- `PinInput` - PIN/OTP input component
+- `TagsInput` - Tag input component
+
+### Layout & Containers
+- `Card` / `CardHeader` / `CardContent` / `CardFooter` - Flexible card containers
+- `Sheet` / `SheetTrigger` / `SheetContent` - Sliding panels
+- `Dialog` / `DialogTrigger` / `DialogContent` - Modal dialogs
+- `AlertDialog` - Confirmation dialogs
+- `Tabs` / `TabsList` / `TabsTrigger` / `TabsContent` - Tab navigation
+- `Accordion` / `AccordionItem` / `AccordionTrigger` - Collapsible content
+- `Separator` - Visual dividers
+- `Sidebar` - Sidebar navigation
+
+### Navigation
+- `NavigationMenu` - Main navigation menus
+- `Breadcrumb` - Breadcrumb navigation
+- `Pagination` - Page navigation controls
+- `MenuBar` - Menu bar component
+- `DropdownMenu` - Dropdown menus
+- `ContextMenu` - Right-click context menus
+
+### Data Display
+- `Table` / `TableHeader` / `TableBody` / `TableRow` / `TableCell` - Data tables
+- `Avatar` / `AvatarImage` / `AvatarFallback` - User avatars
+- `AvatarGroup` - Grouped avatars
+- `Badge` - Status badges and labels
+- `Calendar` - Date picker calendar
+- `RangeCalendar` - Date range picker
+- `Progress` - Progress indicators
+- `Skeleton` - Loading skeletons
+
+### Feedback & Overlays
+- `Alert` / `AlertTitle` / `AlertDescription` - Alert messages
+- `Tooltip` - Hover tooltips
+- `Popover` / `PopoverTrigger` / `PopoverContent` - Click/hover popovers
+- `Sonner` - Toast notifications
+
+### Interactive
+- `Slider` - Range sliders
+- `Carousel` - Image/content carousels
+- `Combobox` - Searchable select
+- `Command` - Command palette
+- `Stepper` - Step-by-step navigation
+
+### Media & Graphics
+- `Icon` - Icon component
+- `Device` - Device mockup components
+- `Blockquote` - Styled quotes
+
+## 🚀 Quick Start Example
+
+```vue
+<template>
+  <div class="p-6 max-w-md mx-auto">
+    <Card>
+      <CardHeader>
+        <CardTitle>Welcome to UNU Design System</CardTitle>
+      </CardHeader>
+      <CardContent class="space-y-4">
+        <Alert>
+          <AlertTitle>Getting Started</AlertTitle>
+          <AlertDescription>
+            You're now using UNU Design System components!
+          </AlertDescription>
+        </Alert>
+        
+        <div class="flex gap-2">
+          <Button variant="default">Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button variant="outline">Outline</Button>
+        </div>
+        
+        <Badge variant="default">New Feature</Badge>
+      </CardContent>
+    </Card>
+  </div>
+</template>
+
+<script setup>
+import { 
+  Card, CardHeader, CardTitle, CardContent,
+  Alert, AlertTitle, AlertDescription,
+  Button, Badge 
+} from 'unu-design-system'
+</script>
+```
+
+## 🎨 Styling
+
+UNU Design System uses Tailwind CSS. Make sure you have Tailwind CSS installed in your project:
 
 ```bash
-
-# npm
-
-npm  run  dev
-
-
-
-# pnpm
-
-pnpm  dev
-
-
-
-# yarn
-
-yarn  dev
-
-
-
-# bun
-
-bun  run  dev
-
+npm install tailwindcss
 ```
 
-## Production
+Add the component styles to your Tailwind config:
 
-Build the application for production:
+```js
+// tailwind.config.js
+module.exports = {
+  content: [
+    './node_modules/unu-design-system/**/*.{js,vue,ts}',
+    // your app content
+  ],
+  // ... rest of your config
+}
+```
+
+## 🔧 TypeScript Support
+
+The library includes comprehensive TypeScript definitions. No additional setup required!
+
+```ts
+import type { ButtonProps } from 'unu-design-system'
+```
+
+## 📖 Documentation
+
+For detailed component documentation and examples, visit our [Storybook](https://storybook.unu-design-system.com).
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Setup
 
 ```bash
+# Clone the repository
+git clone https://github.com/iiibnuadam/unu-design-system.git
 
-# npm
+# Install dependencies
+pnpm install
 
-npm  run  build
+# Start development server
+pnpm dev
 
+# Build the library
+pnpm build
 
-
-# pnpm
-
-pnpm  build
-
-
-
-# yarn
-
-yarn  build
-
-
-
-# bun
-
-bun  run  build
-
+# Run Storybook
+pnpm storybook
 ```
 
-Locally preview production build:
+## 📄 License
 
-```bash
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-# npm
+## 🏢 About
 
-npm  run  preview
+Built by the Digital Transformation Team at UNU (Universitas Nahdlatul Ulama).
 
+Based on:
+- [shadcn/vue](https://www.shadcn-vue.com/) - Component foundation
+- [Reka UI](https://www.reka-ui.com/) - Headless UI primitives  
+- [Preline UI](https://preline.co/) - Design inspiration
 
+## 🔗 Links
 
-# pnpm
+- 📦 [NPM Package](https://www.npmjs.com/package/unu-design-system)
+- 📂 [GitHub Repository](https://github.com/iiibnuadam/unu-design-system)
+- 🎨 [Figma Design System](https://www.figma.com/design/ux4CTnxNTYgUpHLr0W99qL/)
+- 📚 [Documentation](https://docs.unu-design-system.com)
 
-pnpm  preview
+---
 
-
-
-# yarn
-
-yarn  preview
-
-
-
-# bun
-
-bun  run  preview
-
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+**Made with ❤️ by UNU Digital Transformation Team**
