@@ -13,7 +13,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'index.ts'),
-      name: 'UnuDesignSystem'
+      name: 'UnuDesignSystem',
+      formats: ['es', 'cjs'],
+      fileName: (format) => format === 'es' ? 'index.js' : 'index.cjs'
     },
     rollupOptions: {
       external: [
@@ -26,36 +28,32 @@ export default defineConfig({
         'reka-ui',
         '@tanstack/vue-table',
         'embla-carousel-vue',
-        'vue-sonner'
+        'vue-sonner',
+        '@formkit/auto-animate',
+        '@hugeicons/vue',
+        '@internationalized/date',
+        'embla-carousel',
+        'vee-validate',
+        'zod'
       ],
-      output: [
-        {
-          format: 'es',
-          entryFileNames: 'index.js',
-          globals: {
-            vue: 'Vue',
-            '@vueuse/core': 'VueUse',
-            'class-variance-authority': 'CVA',
-            'clsx': 'clsx',
-            'tailwind-merge': 'TailwindMerge',
-            'lucide-vue-next': 'LucideVue',
-            'reka-ui': 'RekaUI'
-          }
+      output: {
+        globals: {
+          vue: 'Vue',
+          '@vueuse/core': 'VueUse',
+          'class-variance-authority': 'CVA',
+          'clsx': 'clsx',
+          'tailwind-merge': 'TailwindMerge',
+          'lucide-vue-next': 'LucideVue',
+          'reka-ui': 'RekaUI'
         },
-        {
-          format: 'cjs',
-          entryFileNames: 'index.cjs',
-          globals: {
-            vue: 'Vue',
-            '@vueuse/core': 'VueUse',
-            'class-variance-authority': 'CVA',
-            'clsx': 'clsx',
-            'tailwind-merge': 'TailwindMerge',
-            'lucide-vue-next': 'LucideVue',
-            'reka-ui': 'RekaUI'
+        assetFileNames: (assetInfo) => {
+          // Skip favicon and robots.txt
+          if (assetInfo.name === 'favicon.ico' || assetInfo.name === 'robots.txt') {
+            return '';
           }
+          return '[name].[ext]';
         }
-      ]
+      }
     },
     sourcemap: true,
     emptyOutDir: true
