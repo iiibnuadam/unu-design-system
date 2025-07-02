@@ -1,3 +1,6 @@
+// Import CSS styles
+import './assets/css/tailwind.css';
+
 export * from './components/ui/accordion';
 export * from './components/ui/alert';
 export * from './components/ui/alert-dialog';

@@ -17,6 +17,7 @@ export default defineConfig({
       formats: ['es', 'cjs'],
       fileName: (format) => format === 'es' ? 'index.js' : 'index.cjs'
     },
+    cssCodeSplit: false,
     rollupOptions: {
       external: [
         'vue',

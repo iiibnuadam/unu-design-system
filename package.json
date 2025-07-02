@@ -1,6 +1,6 @@
 {
   "name": "unu-design-system",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -13,11 +13,12 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "index.css"
   ],
   "scripts": {
     "build:nuxt": "nuxt build",
-    "build": "rm -rf dist && vite build && npx tsc -p tsconfig.build.json",
+    "build": "rm -rf dist && vite build && npx tsc -p tsconfig.build.json && cp assets/css/tailwind.css dist/style.css",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

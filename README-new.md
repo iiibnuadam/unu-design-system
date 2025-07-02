@@ -43,24 +43,6 @@ import { Button, Alert, AlertTitle, AlertDescription } from 'unu-design-system'
 </script>
 ```
 
-### Import Styles
-
-**Important**: You need to import the CSS file for components to display correctly:
-
-```js
-// In your main.js/main.ts or nuxt.config.ts
-import 'unu-design-system/dist/unu-design-system.css'
-```
-
-For Nuxt.js projects:
-
-```ts
-// nuxt.config.ts
-export default defineNuxtConfig({
-  css: ['unu-design-system/dist/unu-design-system.css'],
-})
-```
-
 ### With Auto-Import (Nuxt.js)
 
 ```ts
